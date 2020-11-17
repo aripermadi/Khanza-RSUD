@@ -146,7 +146,7 @@ public class DlgFeeVisitDokter extends javax.swing.JDialog {
                     "on jns_perawatan_inap.kd_jenis_prw=rawat_inap_dr.kd_jenis_prw where "+
                     "rawat_inap_dr.tarif_tindakandr>0 and rawat_inap_dr.kd_dokter=? "+
                     "and rawat_inap_dr.no_rawat=? and jns_perawatan_inap.nm_perawatan like '%konsul%' "+
-                    "and jns_perawatan_inap.nm_perawatan like '%phone%' ");
+                    "and jns_perawatan_inap.nm_perawatan like '%telepon%' ");
         } catch (SQLException e) {
             System.out.println(e);
         }

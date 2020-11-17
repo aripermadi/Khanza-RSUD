@@ -3481,7 +3481,7 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
             param.put("kontakrs",akses.getkontakrs());
             param.put("emailrs",akses.getemailrs());
             param.put("logo",Sequel.cariGambar("select logo from setting"));
-            param.put("logo2",Sequel.cariGambar("select logo from setting"));
+            param.put("logopemda",Sequel.cariGambar("select logopemda from gambar"));
             Valid.MyReportqry("rptSKL2.jasper","report","::[ Surat Kelahiran Bayi ]::",
                 "select pasien.no_rkm_medis, pasien.nm_pasien, pasien.jk, "+
                 "pasien.tgl_lahir,pasien_bayi.jam_lahir, pasien.umur, "+
@@ -3492,10 +3492,10 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                 "pasien_bayi.proses_lahir,pasien_bayi.anakke, pasien_bayi.keterangan, "+
                 "pasien_bayi.diagnosa,pasien_bayi.penyulit_kehamilan,pasien_bayi.ketuban,"+
                 "pasien_bayi.lingkar_perut,pasien_bayi.lingkar_dada,pegawai.nama,"+
-                "pasien_bayi.no_skl from pasien inner join pegawai inner join pasien_bayi "+
-                "inner join kelurahan inner join kecamatan inner join kabupaten "+
+                "pasien_bayi.no_skl,dokter.nm_dokter from pasien inner join pegawai inner join pasien_bayi "+
+                "inner join kelurahan inner join kecamatan inner join kabupaten inner join reg_periksa inner join dokter "+
                 "on pasien.no_rkm_medis=pasien_bayi.no_rkm_medis and pasien_bayi.penolong=pegawai.nik "+
-                "and pasien.kd_kel=kelurahan.kd_kel and pasien.kd_kec=kecamatan.kd_kec and pasien.kd_kab=kabupaten.kd_kab "+
+                "and pasien.kd_kel=kelurahan.kd_kel and pasien.kd_kec=kecamatan.kd_kec and pasien.kd_kab=kabupaten.kd_kab and pasien.no_rkm_medis=reg_periksa.no_rkm_medis and reg_periksa.kd_dokter=dokter.kd_dokter "+
                 "where pasien_bayi.no_rkm_medis='"+NoRm.getText()+"'",param);
         }
         this.setCursor(Cursor.getDefaultCursor());
@@ -3519,7 +3519,7 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
             param.put("kontakrs",akses.getkontakrs());
             param.put("emailrs",akses.getemailrs());
             param.put("logo",Sequel.cariGambar("select logo from setting"));
-            param.put("logo2",Sequel.cariGambar("select logo from setting"));
+            param.put("logopemda",Sequel.cariGambar("select logopemda from gambar"));
             Valid.MyReportqry("rptSKL3.jasper","report","::[ Surat Kelahiran Bayi ]::",
                 "select pasien.no_rkm_medis, pasien.nm_pasien, pasien.jk, "+
                 "pasien.tgl_lahir,pasien_bayi.jam_lahir, pasien.umur, "+
@@ -3530,10 +3530,10 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                 "pasien_bayi.proses_lahir,pasien_bayi.anakke, pasien_bayi.keterangan, "+
                 "pasien_bayi.diagnosa,pasien_bayi.penyulit_kehamilan,pasien_bayi.ketuban,"+
                 "pasien_bayi.lingkar_perut,pasien_bayi.lingkar_dada,pegawai.nama,"+
-                "pasien_bayi.no_skl from pasien inner join pegawai inner join pasien_bayi "+
-                "inner join kelurahan inner join kecamatan inner join kabupaten "+
+                "pasien_bayi.no_skl,dokter.nm_dokter from pasien inner join pegawai inner join pasien_bayi "+
+                "inner join kelurahan inner join kecamatan inner join kabupaten inner join reg_periksa inner join dokter "+
                 "on pasien.no_rkm_medis=pasien_bayi.no_rkm_medis and pasien_bayi.penolong=pegawai.nik "+
-                "and pasien.kd_kel=kelurahan.kd_kel and pasien.kd_kec=kecamatan.kd_kec and pasien.kd_kab=kabupaten.kd_kab "+
+                "and pasien.kd_kel=kelurahan.kd_kel and pasien.kd_kec=kecamatan.kd_kec and pasien.kd_kab=kabupaten.kd_kab and pasien.no_rkm_medis=reg_periksa.no_rkm_medis and reg_periksa.kd_dokter=dokter.kd_dokter "+
                 "where pasien_bayi.no_rkm_medis='"+NoRm.getText()+"'",param);
         }
         this.setCursor(Cursor.getDefaultCursor());

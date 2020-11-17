@@ -1203,6 +1203,7 @@ public class frmUtama extends javax.swing.JFrame {
         btnGrafikLimbahB3MedisPerBulan = new widget.ButtonBig();
         btnLimbahDomestik = new widget.ButtonBig();
         btnGrafikLimbahDomestikPerTanggal = new widget.ButtonBig();
+        btnAlihRawat = new widget.ButtonBig();
         tanggal = new widget.Tanggal();
         btnDataPenjualan = new widget.ButtonBig();
         btnInputPenjualan = new widget.ButtonBig();
@@ -6919,6 +6920,18 @@ public class frmUtama extends javax.swing.JFrame {
             }
         });
         Panelmenu.add(btnGrafikLimbahDomestikPerTanggal);
+
+        btnAlihRawat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1485357758_Doctor.png"))); // NOI18N
+        btnAlihRawat.setText("Alih Rawat");
+        btnAlihRawat.setIconTextGap(0);
+        btnAlihRawat.setName("btnAlihRawat"); // NOI18N
+        btnAlihRawat.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnAlihRawat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlihRawatActionPerformed(evt);
+            }
+        });
+        Panelmenu.add(btnAlihRawat);
 
         scrollPane2.setViewportView(Panelmenu);
 
@@ -14241,6 +14254,20 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnPengajuanCutiPegawaiActionPerformed
 
+    private void btnAlihRawatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlihRawatActionPerformed
+      isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgAlihRawat arw=new DlgAlihRawat(this,false);
+        arw.tampil();
+        arw.emptTeks();
+        arw.isCek();
+        arw.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        arw.setLocationRelativeTo(PanelUtama);
+        arw.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_btnAlihRawatActionPerformed
+
     private void btnKategoriPerpustakaanActionPerformed(java.awt.event.ActionEvent evt) {
         isTutup();
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
@@ -15808,6 +15835,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
     private widget.TextBox TCari;
     private widget.ButtonBig btnAdmin;
     private widget.ButtonBig btnAkunPiutang;
+    private widget.ButtonBig btnAlihRawat;
     private widget.ButtonBig btnAnalisaKamar;
     private widget.ButtonBig btnAnggotaMiliterDirawat;
     private widget.ButtonBig btnAplicareKetersediaanKamar;
@@ -16337,7 +16365,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             btnSuratSakit,btnPenilaianAwalKeperawatanRalan,btnMasterMasalahKeperawatan,btnPengajuanCuti;
     
     public void isWall(){
-        try{            
+        try{          
             ps=koneksi.prepareStatement("select nama_instansi, alamat_instansi, kabupaten, propinsi, aktifkan, wallpaper,kontak,email,logo from setting");
             try {
                 rs=ps.executeQuery();
@@ -16518,6 +16546,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 Panelmenu.add(btnRujukMasuk);
                 jmlmenu++;
             }
+            
+            if(akses.getalih_rawat()==true){
+                Panelmenu.add(btnAlihRawat);
+                jmlmenu++;
+            }
 
             if(akses.getberi_obat()==true){
                 Panelmenu.add(btnBeriObat);
@@ -16632,7 +16665,8 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 Panelmenu.add(btnPengajuanCuti);   
                 jmlmenu++;
             }
-
+            
+          
             Panelmenu.add(btnRekapPresensi);
             Panelmenu.add(btnRekapPresensi2);
             jmlmenu++;
@@ -19568,6 +19602,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             Panelmenu.add(btnPengajuanCuti);   
             jmlmenu++;
         }
+        
+        if(akses.getalih_rawat()==true){
+            Panelmenu.add(btnAlihRawat);
+            jmlmenu++;
+        }
 
         Panelmenu.add(btnRekapPresensi);
         Panelmenu.add(btnRekapPresensi2);
@@ -22395,6 +22434,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 jmlmenu++;
             }                
         }
+        
+        if(akses.getalih_rawat()==true){
+            if(btnAlihRawat.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnAlihRawat);
+                jmlmenu++;
+            }                
+        }
 
         if(akses.getberi_obat()==true){
             if(btnBeriObat.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
@@ -22561,7 +22607,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 jmlmenu++;
             }                
         }
-
+        
         if(btnRekapPresensi.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
             jmlmenu++;
             Panelmenu.add(btnRekapPresensi);
@@ -27896,6 +27942,19 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 btnPengajuanCutiActionPerformed(evt);
             }
         });
+        
+        btnAlihRawat = new widget.ButtonBig();
+        btnAlihRawat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/iconfinder_reminders_3572.png"))); 
+        btnAlihRawat.setText("Alih Rawat");
+        btnAlihRawat.setIconTextGap(0);
+        btnAlihRawat.setName("btnAlihRawat"); 
+        btnAlihRawat.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnAlihRawat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlihRawatActionPerformed(evt);
+            }
+        });
+        
 
     }
 
