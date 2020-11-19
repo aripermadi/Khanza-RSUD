@@ -643,7 +643,7 @@ public final class DlgAlihRawat extends javax.swing.JDialog {
         FormInput.add(TDokter);
         TDokter.setBounds(190, 130, 180, 23);
 
-        jLabel13.setText(" Kategori AlihRawat :");
+        jLabel13.setText(" Kategori Alih Rawat :");
         jLabel13.setName("jLabel13"); // NOI18N
         FormInput.add(jLabel13);
         jLabel13.setBounds(396, 100, 110, 23);
